@@ -1,8 +1,3 @@
-//Toggle the class rotateCard when a card is clicked
-function rotateCard() {
-  this.classList.toggle('rotateCard');
-}
-
 //Create an array to hold the Memory Cards
 var memoryCard = document.querySelectorAll('.card-image');
 var memoryCards = [...memoryCard];
@@ -12,10 +7,17 @@ for (var i = 0; i < memoryCards.length; i++){
     memoryCards[i].addEventListener('click', rotateCard);
 };
 
+//Toggle the class rotateCard when a card is clicked
+function rotateCard() {
+  this.classList.toggle('rotateCard');
+};
+
 //Shuffle the cards on the Gameboard - remove the rotateCard class so cards are reset
+var shuffleNumber = memoryCard.length;
+console.log(shuffleNumber);
 function shuffleGameboard() {
     for (var i = 0; i < memoryCards.length; i++){
-        var randomPosition = Math.floor(Math.random() * 12);
+        var randomPosition = Math.floor(Math.random() * shuffleNumber);
         memoryCard[i].style.order = randomPosition;
         memoryCard[i].classList.remove('rotateCard');        
     };
