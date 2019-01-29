@@ -1,3 +1,4 @@
+
 //Create an array to hold the Memory Cards
 var memoryCard = document.querySelectorAll('.card-image');
 var shuffleNumber = memoryCard.length;
@@ -14,10 +15,16 @@ for (var i = 0; i < memoryCards.length; i++){
 };
 
 //Add the class rotateCard when a card is clicked
+//Checking for values of clicked cards
 function rotateCard() {
     this.classList.add('rotateCard');
-    cardOne = this;
+    if (rotatedCard == false) {
+        rotatedCard = true;
+        cardOne = this;
+        return;
+    }; 
     cardTwo = this;
+    rotatedCard = false;
     matchedCards();
 };
 
@@ -38,10 +45,12 @@ function matchedCards() {
     var testCard2 = cardTwo.dataset.cardimage;
     console.log(testCard2);
    if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
+       console.log(rotatedCard);
        console.log("Matched");
        return;
     }
     else {
+        console.log(rotatedCard);
         console.log("Not Matched");
     };
 };
