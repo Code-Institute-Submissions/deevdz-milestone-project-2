@@ -1,6 +1,12 @@
 //Create an array to hold the Memory Cards
 var memoryCard = document.querySelectorAll('.card-image');
+var shuffleNumber = memoryCard.length;
 var memoryCards = [...memoryCard];
+
+//Variables for card states
+var rotatedCard = false;
+var cardOne, cardTwo;
+
 
 //Loop through the cards and add an event listener to each card
 for (var i = 0; i < memoryCards.length; i++){
@@ -9,11 +15,13 @@ for (var i = 0; i < memoryCards.length; i++){
 
 //Add the class rotateCard when a card is clicked
 function rotateCard() {
-  this.classList.add('rotateCard');
+    this.classList.add('rotateCard');
+    cardOne = this;
+    cardTwo = this;
+    matchedCards();
 };
 
 //Shuffle the cards on the Gameboard - remove the rotateCard class so cards are reset
-var shuffleNumber = memoryCard.length;
 function shuffleGameboard() {
     for (var i = 0; i < memoryCards.length; i++){
         var randomPosition = Math.floor(Math.random() * shuffleNumber);
@@ -23,3 +31,17 @@ function shuffleGameboard() {
 };
 
 document.body.onload = shuffleGameboard();
+
+function matchedCards() {
+    var testCard1 = cardOne.dataset.cardimage;
+    console.log(testCard1);
+    var testCard2 = cardTwo.dataset.cardimage;
+    console.log(testCard2);
+   if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
+       console.log("Matched");
+       return;
+    }
+    else {
+        console.log("Not Matched");
+    };
+};
