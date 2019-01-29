@@ -7,14 +7,13 @@ for (var i = 0; i < memoryCards.length; i++){
     memoryCards[i].addEventListener('click', rotateCard);
 };
 
-//Toggle the class rotateCard when a card is clicked
+//Add the class rotateCard when a card is clicked
 function rotateCard() {
-  this.classList.toggle('rotateCard');
+  this.classList.add('rotateCard');
 };
 
 //Shuffle the cards on the Gameboard - remove the rotateCard class so cards are reset
 var shuffleNumber = memoryCard.length;
-console.log(shuffleNumber);
 function shuffleGameboard() {
     for (var i = 0; i < memoryCards.length; i++){
         var randomPosition = Math.floor(Math.random() * shuffleNumber);
