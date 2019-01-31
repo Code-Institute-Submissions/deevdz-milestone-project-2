@@ -38,7 +38,7 @@ function shuffleGameboard() {
     for (var i = 0; i < memoryCards.length; i++){
         var randomPosition = Math.floor(Math.random() * shuffleNumber);
         memoryCard[i].style.order = randomPosition;
-        memoryCard[i].classList.remove('rotateCard', 'deactivate');        
+        memoryCard[i].classList.remove('rotateCard', 'deactivate', 'pair');  
     };
 };
 
