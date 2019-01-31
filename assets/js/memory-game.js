@@ -8,7 +8,6 @@ var memoryCards = [...memoryCard];
 var rotatedCard = false;
 var cardOne, cardTwo;
 
-
 //Loop through the cards and add an event listener to each card
 for (var i = 0; i < memoryCards.length; i++){
     memoryCards[i].addEventListener('click', rotateCard);
@@ -21,9 +20,11 @@ function rotateCard() {
     if (rotatedCard == false) {
         rotatedCard = true;
         cardOne = this;
+        cardOne.classList.add('deactivate'); 
         return;
     }; 
     cardTwo = this;
+    cardTwo.classList.add('deactivate'); 
     rotatedCard = false;
     matchedCards();
 };
@@ -39,18 +40,27 @@ function shuffleGameboard() {
 
 document.body.onload = shuffleGameboard();
 
+//Checking if the cards are matching
 function matchedCards() {
+    //Testing Cards and outputing to conole
     var testCard1 = cardOne.dataset.cardimage;
     console.log(testCard1);
     var testCard2 = cardTwo.dataset.cardimage;
     console.log(testCard2);
-   if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
-       console.log(rotatedCard);
-       console.log("Matched");
-       return;
-    }
+    //If the cards match print Matched to Console
+    if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
+        console.log(rotatedCard);
+        console.log("Matched");
+        return;
+        }
     else {
+        if (this === cardOne) return;
         console.log(rotatedCard);
         console.log("Not Matched");
+        //Set Timeout for rotating two cards if the cards don't match remove classes
+        setTimeout(function(){
+            cardOne.classList.remove('rotateCard', 'deactivate'); 
+            cardTwo.classList.remove('rotateCard', 'deactivate'); 
+        }, 1200);
     };
 };
