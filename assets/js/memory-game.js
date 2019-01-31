@@ -2,7 +2,7 @@
 //Create an array to hold the Memory Cards
 var memoryCard = document.querySelectorAll('.card-image');
 var shuffleNumber = memoryCard.length;
-console.log(shuffleNumber);
+//console.log(shuffleNumber);
 var memoryCards = [...memoryCard];
 
 //Variables for card states
@@ -19,7 +19,7 @@ for (var i = 0; i < memoryCards.length; i++){
 //Checking for values of clicked cards
 function rotateCard() {
     if (disableGameBoard) return;
-    console.log(disableGameBoard);
+    //console.log(disableGameBoard);
     this.classList.add('rotateCard');
     if (rotatedCard == false) {
         rotatedCard = true;
@@ -47,30 +47,31 @@ document.body.onload = shuffleGameboard();
 //Checking if the cards are matching
 function matchedCards() {
     //Testing Cards and outputing to conole
-    var testCard1 = cardOne.dataset.cardimage;
-    console.log(testCard1);
-    var testCard2 = cardTwo.dataset.cardimage;
-    console.log(testCard2);
+    //var testCard1 = cardOne.dataset.cardimage;
+    //console.log(testCard1);
+    //var testCard2 = cardTwo.dataset.cardimage;
+    //console.log(testCard2);
     //If the cards match print Matched to Console
     if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
-        console.log(rotatedCard);
-        console.log("Matched");
+        //console.log(rotatedCard);
+        //console.log("Matched");
         cardOne.classList.add('pair');
         cardTwo.classList.add('pair');
         var cardPairs = document.getElementsByClassName('pair');
         var pairAmount = cardPairs.length;
-        console.log(pairAmount);
+        //console.log(pairAmount);
         //Checking for when game is complete
         if (pairAmount == shuffleNumber) {
-            console.log('Winner Winner Chicken Dinner!')
+            //console.log('Winner Winner Chicken Dinner!')
+            modal.style.display = "block";
         }
         return;
         }
     else {
         if (this === cardOne) return;
         disableGameBoard = true;
-        console.log(rotatedCard);
-        console.log("Not Matched");
+        //console.log(rotatedCard);
+        //console.log("Not Matched");
         //Set Timeout for rotating two cards if the cards don't match remove classes
         setTimeout(function(){
             cardOne.classList.remove('rotateCard', 'deactivate'); 
@@ -79,4 +80,23 @@ function matchedCards() {
             disableGameBoard = false;
         }, 1200);
     };
+};
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 };
