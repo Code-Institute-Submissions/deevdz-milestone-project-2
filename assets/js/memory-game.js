@@ -2,6 +2,7 @@
 //Create an array to hold the Memory Cards
 var memoryCard = document.querySelectorAll('.card-image');
 var shuffleNumber = memoryCard.length;
+console.log(shuffleNumber);
 var memoryCards = [...memoryCard];
 
 //Variables for card states
@@ -54,6 +55,15 @@ function matchedCards() {
     if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
         console.log(rotatedCard);
         console.log("Matched");
+        cardOne.classList.add('pair');
+        cardTwo.classList.add('pair');
+        var cardPairs = document.getElementsByClassName('pair');
+        var pairAmount = cardPairs.length;
+        console.log(pairAmount);
+        //Checking for when game is complete
+        if (pairAmount == shuffleNumber) {
+            console.log('Winner Winner Chicken Dinner!')
+        }
         return;
         }
     else {
