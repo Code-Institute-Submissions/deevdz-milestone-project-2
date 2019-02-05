@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Fahkwang:300,400,700" rel="stylesheet">     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <title>Memory Card Game for Kids</title>
 </head>
 <body>
     <section>
+        <!--Gameboard with Card Images-->
         <div class="container justify-content-center">
-             <button onclick="shuffleGameboard()">Click me</button> 
+            <div class="row mt-5 mb-1 mx-auto justify-content-center">
+                <h1>Memory Game</h1>
+            </div>
+             <button class="play-again" onclick="shuffleGameboard()"><i class="fas fa-redo"></i> Restart Game</button> 
             <div class="memory-gameboard row mt-5 mb-5 mx-auto">
                 <div class="card-image" data-cardimage="Elephant">
                     <img class="card-front" src="assets/images/card-front-elephant.png">
@@ -63,14 +69,24 @@
                 </div>  
             </div>
         </div>
-        <div id="myModal" class="modal">
+        <!--Congratulations Modal Box - displays on winning-->
+        <div id="winningModalBox" class="modal">
           <!-- Modal content -->
-              <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Winner Winner Chicken Dinner</p>
-            </div>
+        	<article class="content-wrapper">
+        		<button class="close"></button>
+        		<header class="modal-header">
+        			<h2>Congratulations <i class="far fa-smile-beam"></i></h2>
+        		</header>
+        		<div class="content">
+        			<p>Well done on winning the game.</p>
+        			<p>You completed the game in # Moves.</p>
+        		</div>
+        		<footer class="modal-footer">
+        			<button class="play-again" onclick="playAgain()"><i class="fas fa-redo"></i> Play Again</button>
+        			<button class="return-home"><i class="fas fa-home"></i>Back Home</button>
+        		</footer>
+        	</article>
         </div>
-        
     </section>
     <script type="text/javascript" src="assets/js/memory-game.js"></script>
 </body>

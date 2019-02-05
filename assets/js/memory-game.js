@@ -47,10 +47,10 @@ document.body.onload = shuffleGameboard();
 //Checking if the cards are matching
 function matchedCards() {
     //Testing Cards and outputing to conole
-    //var testCard1 = cardOne.dataset.cardimage;
-    //console.log(testCard1);
-    //var testCard2 = cardTwo.dataset.cardimage;
-    //console.log(testCard2);
+    var testCard1 = cardOne.dataset.cardimage;
+    console.log(testCard1);
+    var testCard2 = cardTwo.dataset.cardimage;
+    console.log(testCard2);
     //If the cards match print Matched to Console
     if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
         //console.log(rotatedCard);
@@ -62,8 +62,9 @@ function matchedCards() {
         //console.log(pairAmount);
         //Checking for when game is complete
         if (pairAmount == shuffleNumber) {
-            //console.log('Winner Winner Chicken Dinner!')
+            setTimeout(function(){
             modal.style.display = "block";
+            }, 500);
         }
         return;
         }
@@ -82,21 +83,27 @@ function matchedCards() {
     };
 };
 
+//Code for the Modal Box
 // Get the modal
-var modal = document.getElementById('myModal');
-
+var modal = document.getElementById('winningModalBox');
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+    modal.style.display = "none";
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+    if (event.target == modal) {
+        modal.style.display = "none";   
+    }
 };
+
+//Play Again Button - reset Gameboard and close Modal Box
+function playAgain () {
+    shuffleGameboard();
+    modal.style.display = "none";
+}
