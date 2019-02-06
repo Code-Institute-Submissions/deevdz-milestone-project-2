@@ -1,8 +1,7 @@
 
-//Create an array to hold the Memory Cards
+//Create an array to hold the Memory Cards and calculate number of cards for shuffle function
 var memoryCard = document.querySelectorAll('.card-image');
 var shuffleNumber = memoryCard.length;
-//console.log(shuffleNumber);
 var memoryCards = [...memoryCard];
 
 //Variables for card states
@@ -10,16 +9,32 @@ var rotatedCard = false;
 var cardOne, cardTwo;
 var disableGameBoard = false;
 
+//Variable to count number of player moves
+var moves = 0;
+var noOfMoves = document.querySelector(".no-of-moves");
+
 //Loop through the cards and add an event listener to each card
 for (var i = 0; i < memoryCards.length; i++){
     memoryCards[i].addEventListener('click', rotateCard);
 };
 
+//Shuffle the cards on the Gameboard - remove the classes so cards are reset, reset the moves to 0
+function shuffleGameboard() {
+    for (var i = 0; i < memoryCards.length; i++){
+        var randomPosition = Math.floor(Math.random() * shuffleNumber);
+        memoryCard[i].style.order = randomPosition;
+        memoryCard[i].classList.remove('rotateCard', 'deactivate', 'pair'); 
+        moves = 0;
+        noOfMoves.innerHTML = moves;
+    };
+};
+
+document.body.onload = shuffleGameboard();
+
 //Add the class rotateCard when a card is clicked
 //Checking for values of clicked cards
 function rotateCard() {
     if (disableGameBoard) return;
-    //console.log(disableGameBoard);
     this.classList.add('rotateCard');
     if (rotatedCard == false) {
         rotatedCard = true;
@@ -30,49 +45,48 @@ function rotateCard() {
     cardTwo = this;
     cardTwo.classList.add('deactivate'); 
     rotatedCard = false;
-    matchedCards();
+    playingGame();
 };
 
-//Shuffle the cards on the Gameboard - remove the rotateCard class so cards are reset
-function shuffleGameboard() {
-    for (var i = 0; i < memoryCards.length; i++){
-        var randomPosition = Math.floor(Math.random() * shuffleNumber);
-        memoryCard[i].style.order = randomPosition;
-        memoryCard[i].classList.remove('rotateCard', 'deactivate', 'pair');  
-    };
-};
-
-document.body.onload = shuffleGameboard();
-
-//Checking if the cards are matching
-function matchedCards() {
+//Check if the cards are matching
+function playingGame() {
     //Testing Cards and outputing to conole
     var testCard1 = cardOne.dataset.cardimage;
     console.log(testCard1);
     var testCard2 = cardTwo.dataset.cardimage;
     console.log(testCard2);
-    //If the cards match print Matched to Console
-    if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
-        //console.log(rotatedCard);
-        //console.log("Matched");
-        cardOne.classList.add('pair');
-        cardTwo.classList.add('pair');
-        var cardPairs = document.getElementsByClassName('pair');
-        var pairAmount = cardPairs.length;
-        //console.log(pairAmount);
-        //Checking for when game is complete
-        if (pairAmount == shuffleNumber) {
+    var rotatedCards = document.getElementsByClassName('rotateCard');
+    var cardMoves = rotatedCards.length;
+    console.log(cardMoves);
+    if (cardMoves % 2 == 0) {
+        countNoOfMoves();
+    //If the cards match add new class to matched cards
+        if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
+            matchingCards();
+            return;
+            }
+        else {
+            unmatchedCards();
+        };
+    };
+};
+
+function matchingCards() {
+    cardOne.classList.add('pair');
+    cardTwo.classList.add('pair');
+    var cardPairs = document.getElementsByClassName('pair');
+    var pairAmount = cardPairs.length;
+    if (pairAmount == shuffleNumber) {
             setTimeout(function(){
             modal.style.display = "block";
-            }, 500);
-        }
-        return;
-        }
-    else {
-        if (this === cardOne) return;
+            document.getElementById("winning-moves").innerHTML = moves;
+        }, 500);
+    };
+};
+
+function unmatchedCards(){
+    if (this === cardOne) return;
         disableGameBoard = true;
-        //console.log(rotatedCard);
-        //console.log("Not Matched");
         //Set Timeout for rotating two cards if the cards don't match remove classes
         setTimeout(function(){
             cardOne.classList.remove('rotateCard', 'deactivate'); 
@@ -80,8 +94,12 @@ function matchedCards() {
             //Reset the Gameboard for the next turn
             disableGameBoard = false;
         }, 1200);
-    };
 };
+
+function countNoOfMoves(){
+    moves++;
+    noOfMoves.innerHTML = moves;
+}
 
 //Code for the Modal Box
 // Get the modal

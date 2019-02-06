@@ -17,56 +17,61 @@
             <div class="row mt-5 mb-1 mx-auto justify-content-center">
                 <h1>Memory Game</h1>
             </div>
-             <button class="play-again" onclick="shuffleGameboard()"><i class="fas fa-redo"></i> Restart Game</button> 
+            <div class="d-flex justify-content-end">
+                    <span class="no-of-moves">0 </span> Move(s)<button class="play-again" onclick="shuffleGameboard()"><i class="fas fa-redo"></i> Restart Game</button>
+            </div>
+            
             <div class="memory-gameboard row mt-5 mb-5 mx-auto">
-                <div class="card-image" data-cardimage="Elephant">
-                    <img class="card-front" src="assets/images/card-front-elephant.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
+                <div class="row mx-auto justify-content-center">
+                    <div class="card-image" data-cardimage="Elephant">
+                        <img class="card-front" src="assets/images/card-front-elephant.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
+                    <div class="card-image" data-cardimage="Elephant">
+                        <img class="card-front" src="assets/images/card-front-elephant.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
+                    <div class="card-image" data-cardimage="Giraffe">
+                        <img class="card-front" src="assets/images/card-front-giraffe.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
+                    <div class="card-image" data-cardimage="Giraffe">
+                        <img class="card-front" src="assets/images/card-front-giraffe.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
+                    <div class="card-image" data-cardimage="Lion">
+                        <img class="card-front" src="assets/images/card-front-lion.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
+                    <div class="card-image" data-cardimage="Lion">
+                        <img class="card-front" src="assets/images/card-front-lion.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>  
+                    <div class="card-image" data-cardimage="Monkey">
+                        <img class="card-front" src="assets/images/card-front-monkey.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
+                    <div class="card-image" data-cardimage="Monkey">
+                        <img class="card-front" src="assets/images/card-front-monkey.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
+                    <div class="card-image" data-cardimage="Tiger">
+                        <img class="card-front" src="assets/images/card-front-tiger.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
+                    <div class="card-image" data-cardimage="Tiger">
+                        <img class="card-front" src="assets/images/card-front-tiger.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
+                    <div class="card-image" data-cardimage="Zebra">
+                        <img class="card-front" src="assets/images/card-front-zebra.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
+                    <div class="card-image" data-cardimage="Zebra">
+                        <img class="card-front" src="assets/images/card-front-zebra.png">
+                        <img class="card-back" src="assets/images/card-back-face.png">
+                    </div>
                 </div>
-                <div class="card-image" data-cardimage="Elephant">
-                    <img class="card-front" src="assets/images/card-front-elephant.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>
-                <div class="card-image" data-cardimage="Giraffe">
-                    <img class="card-front" src="assets/images/card-front-giraffe.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>
-                <div class="card-image" data-cardimage="Giraffe">
-                    <img class="card-front" src="assets/images/card-front-giraffe.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>
-                <div class="card-image" data-cardimage="Lion">
-                    <img class="card-front" src="assets/images/card-front-lion.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>
-                <div class="card-image" data-cardimage="Lion">
-                    <img class="card-front" src="assets/images/card-front-lion.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>  
-                <div class="card-image" data-cardimage="Monkey">
-                    <img class="card-front" src="assets/images/card-front-monkey.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>
-                <div class="card-image" data-cardimage="Monkey">
-                    <img class="card-front" src="assets/images/card-front-monkey.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>
-                <div class="card-image" data-cardimage="Tiger">
-                    <img class="card-front" src="assets/images/card-front-tiger.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>
-                <div class="card-image" data-cardimage="Tiger">
-                    <img class="card-front" src="assets/images/card-front-tiger.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>
-                <div class="card-image" data-cardimage="Zebra">
-                    <img class="card-front" src="assets/images/card-front-zebra.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>
-                <div class="card-image" data-cardimage="Zebra">
-                    <img class="card-front" src="assets/images/card-front-zebra.png">
-                    <img class="card-back" src="assets/images/card-back-face.png">
-                </div>  
             </div>
         </div>
         <!--Congratulations Modal Box - displays on winning-->
@@ -79,7 +84,7 @@
         		</header>
         		<div class="content">
         			<p>Well done on winning the game.</p>
-        			<p>You completed the game in # Moves.</p>
+        			<p>You completed the game in <span id="winning-moves">0 </span> of Moves.</p>
         		</div>
         		<footer class="modal-footer">
         			<button class="play-again" onclick="playAgain()"><i class="fas fa-redo"></i> Play Again</button>
