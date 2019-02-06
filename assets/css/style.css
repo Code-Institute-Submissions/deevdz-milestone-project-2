@@ -8,6 +8,28 @@ body {
     background: url(../images/leaves-bgrd.png) repeat #1abc9c;
     font-family: 'Fahkwang', sans-serif;
 }
+/*---Scoreboard Styles---*/
+.scoreboard {
+    width:80%;
+    display: flex;
+	justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap;  
+    padding: 10px 0;
+}
+
+.moves-scoreboard {
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.25rem;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    background-color: #34495e;
+}
+
+.no-of-moves::after {
+  content: " Move(s)";
+}
 
 /*---Gameboard Styles---*/
 h1 {
@@ -21,8 +43,7 @@ h1 {
 	justify-content: center;
     align-items: center; 
     flex-wrap: wrap;  
-    background-color: rgba(52,73,94,0.5);
-    padding: 30px 0;
+    padding: 10px 0;
 }
 
 /*---Card Styles and Transitions---*/
@@ -151,7 +172,7 @@ h1 {
 }
 
 .modal-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color:#2ecc71;
 }
@@ -163,8 +184,13 @@ h1 {
 }
 
 .content p {
-	font-size: 0.875rem;
+	font-size: 1.1rem;
 	line-height: 1.75;
+	text-align: left;
+}
+
+.content strong {
+    color:#1abc9c;
 }
 
 .modal-footer {
@@ -181,7 +207,6 @@ h1 {
 	margin-left: 0.625rem;
 	padding: 0.625rem 1.25rem;
 	border: none;
-	background-color: $primary;
     border-radius: 0.25rem;
 	color: white;
     font-size: 0.95rem;
@@ -195,7 +220,6 @@ h1 {
 	margin-left: 0.625rem;
 	padding: 0.625rem 1.25rem;
 	border: none;
-	background-color: $primary;
     border-radius: 0.25rem;
 	color: white;
     font-size: 0.95rem;

@@ -14,14 +14,17 @@
     <section>
         <!--Gameboard with Card Images-->
         <div class="container justify-content-center">
-            <div class="row mt-5 mb-1 mx-auto justify-content-center">
+            <div class="row mt-4 mb-1 mx-auto justify-content-center">
                 <h1>Memory Game</h1>
             </div>
-            <div class="d-flex justify-content-end">
-                    <span class="no-of-moves">0 </span> Move(s)<button class="play-again" onclick="shuffleGameboard()"><i class="fas fa-redo"></i> Restart Game</button>
+            <div class="row scoreboard justify-content-center mx-auto">
+                <div class="d-flex flex-row mx-auto moves-scoreboard"><span class="no-of-moves">0 </span></div>
+                <div class="d-flex flex-row-reverse mx-auto">
+                    <button class="play-again" onclick="shuffleGameboard()"><i class="fas fa-redo"></i> Restart Game</button>
+                </div>
             </div>
             
-            <div class="memory-gameboard row mt-5 mb-5 mx-auto">
+            <div class="memory-gameboard row mt-2 mb-5 mx-auto">
                 <div class="row mx-auto justify-content-center">
                     <div class="card-image" data-cardimage="Elephant">
                         <img class="card-front" src="assets/images/card-front-elephant.png">
@@ -80,11 +83,10 @@
         	<article class="content-wrapper">
         		<button class="close"></button>
         		<header class="modal-header">
-        			<h2>Congratulations <i class="far fa-smile-beam"></i></h2>
+        			<h2>Congratulations - You Won <i class="far fa-smile-beam"></i></h2>
         		</header>
         		<div class="content">
-        			<p>Well done on winning the game.</p>
-        			<p>You completed the game in <span id="winning-moves">0 </span> of Moves.</p>
+        			<p>You completed the game in <strong><span id="winning-moves">0 </span> Move(s).</strong></p>
         		</div>
         		<footer class="modal-footer">
         			<button class="play-again" onclick="playAgain()"><i class="fas fa-redo"></i> Play Again</button>
