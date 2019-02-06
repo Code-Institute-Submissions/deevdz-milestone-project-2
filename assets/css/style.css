@@ -25,6 +25,7 @@ body {
     font-size: 0.95rem;
     font-weight: 500;
     background-color: #34495e;
+    margin-bottom:10px;
 }
 
 .no-of-moves::after {
@@ -212,9 +213,25 @@ h1 {
     font-size: 0.95rem;
 	font-weight: 500;
 	overflow: hidden;
-    z-index: 1;
     background-color: #3498db;
+    display:inline-block;
+    z-index:0;
+    cursor:pointer;
 }
+
+.play-again::before {
+  content: "";
+  position: absolute;
+  z-index:-1;
+  top: 0;  left: 0;  right: 0;  bottom: 0;
+  background: #2ecc71;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform .3s ease-out;
+}
+
+.play-again:hover::before{transform: scaleX(1);}
+
 .return-home {
     position: relative;
 	margin-left: 0.625rem;
@@ -227,6 +244,7 @@ h1 {
 	overflow: hidden;
     z-index: 1;
     background-color: #9b59b6;
+    cursor:pointer;
 }
 
 .modal .content-wrapper .modal-footer .play-again:before, .modal .content-wrapper .modal-footer .return-home:before {
@@ -247,4 +265,33 @@ h1 {
 
 .fas {
     padding-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+.card-image {
+    height:80px;
+    width:80px;
+}
+.content-wrapper {
+    width:90%;
+    left:5%;
+    padding:0.5rem;
+}
+
+.modal-header h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2ecc71;
+    padding-top: 30px;
+}
+.content p {
+    font-size: 0.8rem;
+}
+.play-again, .return-home {
+    padding:0.5rem;
+    font-size:0.8rem;
+}
+.fas {
+    padding-right: 5px;
+}
 }
