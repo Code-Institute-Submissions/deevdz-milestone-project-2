@@ -1,0 +1,439 @@
+$navy: #34495e;
+$purple:#9b59b6;
+$blue:#3498db;
+$green:#7cc576;
+$teal:#1abc9c;
+$button-padding:0.625rem 1.25rem;
+$button-border-radius:0.25rem;
+
+/*---General Styles---*/
+* {
+    padding: 0;
+    margin:0;
+    font-family: 'Fahkwang', sans-serif;
+}
+
+/*--- Styles for Index Page---*/
+#main {
+    background: url(../images/main-bgrd.png) repeat $blue;
+
+}
+
+.level1-button, 
+.level2-button, 
+.level3-button {
+    padding: $button-padding;
+    border-radius: $button-border-radius;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.level1-button {
+    background-color: $navy;   
+}
+.level2-button {
+    background-color: $green;
+}
+.level3-button {
+    background-color: $purple;
+}
+.level1-button a, 
+.level2-button a, 
+.level3-button a {
+    color:white;
+    text-decoration: none;
+}
+
+/*--- Level 1 Page Style ---*/
+#level1 {
+    background: url(../images/level1-bgrd.png) repeat $blue;
+}
+
+/*--- Styles for Level 2 Page ---*/
+#level2 {
+    background: url(../images/level2-bgrd.png) repeat $purple;
+}
+
+/*--- Styles for Level 3 Page ---*/
+#level3 {
+    background: url(../images/leaves-bgrd.png) repeat $teal;
+}
+
+/*--- Styles for Scoreboards - different levels ---*/
+#level1 .moves-scoreboard, 
+#level2 .moves-scoreboard, 
+#level3 .moves-scoreboard  {
+    padding: $button-padding;
+    border-radius: $button-border-radius;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom:10px;
+}
+
+#level1 .moves-scoreboard {
+    background-color: $purple;
+}
+
+#level2 .moves-scoreboard,
+#level3 .moves-scoreboard {
+    background-color: $navy;
+}
+
+.level1-section, 
+.level2-section,
+.level3-section {
+    padding: $button-padding;
+    border-radius: $button-border-radius;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom:10px;
+    border:none;
+}
+
+.level1-section a, 
+.level2-section a, 
+.level3-section a {
+    color:white;
+}
+
+.level1-section {
+    background-color: $navy;
+}
+
+.level2-section {
+    background-color: $green;
+}
+
+.level3-section {
+    background-color: $purple;
+}
+
+#level1 .restart-game, 
+#level2 .restart-game, 
+#level3 .restart-game {
+    position: relative;
+    margin-left: 0.625rem;
+    padding: $button-padding;
+    border: none;
+    border-radius: $button-border-radius;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    overflow: hidden;
+    display:inline-block;
+    z-index:1;
+    cursor:pointer;
+    margin-bottom: 10px;
+}
+
+#level1 .restart-game {
+    background-color: $green;
+}
+
+#level2 .restart-game {
+    background-color: $blue;
+}
+
+#level3 .restart-game {
+    background-color: $blue;
+}
+
+#level1 .restart-game:before,
+#level2 .restart-game:before,
+#level3 .restart-game:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: width 0.25s;
+    z-index: 0;
+}
+
+#level1 .restart-game:hover:before, 
+#level2 .restart-game:hover:before,
+#level3 .restart-game:hover:before {
+    width: 100%;
+}
+
+/*---Scoreboard Styles---*/
+.scoreboard {
+    width:80%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.no-of-moves::after {
+    content: " Move(s)";
+}
+
+/*---Gameboard Styles---*/
+h1 {
+    color: white;
+    font-weight: 700;
+    text-align: center;
+}
+.memory-gameboard {
+    width:80%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+/*---Card Styles and Transitions---*/
+.card-image {
+    display: flex;
+    margin: 5px;
+    position: relative;
+    transition: all .5s ease-in-out;
+    transform-style: preserve-3d;
+    height:175px;
+    width:175px;
+}
+
+.card-image:hover {
+    transform: scale(1.05);
+}
+
+.card-image.rotateCard {
+    transition: all .5s ease-in-out;
+    transform: rotateY(180deg);
+}
+
+.card-image.deactivate {
+    pointer-events:none;
+}
+
+.card-front, .card-back{
+    width:100%;
+    height:100%;
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.card-front {
+    transition: all .5s ease-in-out;
+    transform:rotateY(180deg);
+}
+
+/*---Styling for the Modal Box---*/
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.7); 
+}
+
+.modal-content {
+    background-color: #efefef;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid $green;
+    width: 50%;
+}
+
+.content-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+    margin: 0;
+    padding: 2.5rem;
+    background-color: white;
+    border-radius: 0.3125rem;
+    box-shadow: 0 0 2.5rem rgba(0,0,0,0.5);
+    transition: transform 0.25s;
+    transition-delay: 0.15s;
+    left:25%;
+}
+.close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    transition: 0.25s linear;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    content: '';
+    width: 1.25rem;
+    height: 0.125rem;
+    background-color: black;
+}
+
+.close:before {
+    transform: rotate(-45deg);
+}
+
+.close:after {
+    transform: rotate(45deg);
+}
+
+.close:hover {
+    transform: rotate(360deg);
+}
+	
+.close:hover:before, .close:hover:after {
+    background-color: $green;
+}
+
+.modal-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 1.25rem;
+}
+
+.modal-header h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color:$green;
+}
+
+.content {
+    position: relative;
+    display: flex;
+    padding-top:15px;
+}
+
+.content p {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    text-align: left;
+}
+
+.content strong {
+    color:$green;
+}
+
+.modal-footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 0;
+    padding: 1.875rem 0 0;
+}
+
+.play-again, 
+.next-level, 
+.return-home {
+    position: relative;
+    margin-left: 0.625rem;
+    padding: $button-padding;
+    border: none;
+    border-radius: $button-border-radius;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    overflow: hidden;
+    display:inline-block;
+    z-index:1;
+    cursor:pointer;
+    margin-bottom: 10px;
+}
+
+.play-again {
+    background-color: $blue;
+}
+
+.next-level {
+    background-color: $purple;
+}
+
+.return-home {
+    background-color: $navy;
+}
+
+.modal .content-wrapper .modal-footer .play-again:before, 
+.modal .content-wrapper .modal-footer .next-level:before, 
+.modal .content-wrapper .modal-footer .return-home:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: width 0.25s;
+    z-index: 0;
+}
+
+.modal .content-wrapper .modal-footer .play-again:hover:before, 
+.modal .content-wrapper .modal-footer .next-level:hover:before,
+.modal .content-wrapper .modal-footer .return-home:hover:before {
+    width: 100%;
+}
+
+.fas {
+    padding-right: 10px;
+}
+
+/*---Adjustments for Mobile Devices---*/
+@media only screen and (max-width: 600px) {
+h1 {
+    font-size: 1.8rem;
+}
+.moves-scoreboard {
+    padding:0.5rem;
+    font-size:0.8rem;
+}
+.card-image {
+    height:80px;
+    width:80px;
+}
+.content-wrapper {
+    width:90%;
+    left:5%;
+    padding:0.5rem;
+}
+.modal-header h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: $green;
+    padding-top: 30px;
+}
+.content p {
+    font-size: 0.8rem;
+}
+.play-again, .return-home {
+    padding:0.5rem;
+    font-size:0.8rem;
+}
+.fas {
+    padding-right: 5px;
+}
+}

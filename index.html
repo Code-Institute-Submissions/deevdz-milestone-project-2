@@ -8,93 +8,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">       
     <title>Memory Card Game for Kids</title>
 </head>
-<body>
+<body id="main">
     <section>
         <!--Gameboard with Card Images-->
         <div class="container justify-content-center">
-            <div class="row mt-4 mb-1 mx-auto justify-content-center">
+            <div class="row mt-4 mb-5 mx-auto justify-content-center">
                 <h1>Memory Game</h1>
             </div>
-            <div class="row scoreboard justify-content-center mx-auto">
-                <div class="d-flex flex-row mx-auto moves-scoreboard"><span class="no-of-moves">0 </span></div>
-                <div class="d-flex flex-row-reverse mx-auto">
-                    <button class="play-again" onclick="shuffleGameboard()"><i class="fas fa-redo"></i> Restart Game</button>
-                </div>
-            </div>
-            
-            <div class="memory-gameboard row mt-2 mb-5 mx-auto">
-                <div class="row mx-auto justify-content-center">
-                    <div class="card-image" data-cardimage="Elephant">
-                        <img class="card-front" src="assets/images/card-front-elephant.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                    <div class="card-image" data-cardimage="Elephant">
-                        <img class="card-front" src="assets/images/card-front-elephant.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                    <div class="card-image" data-cardimage="Giraffe">
-                        <img class="card-front" src="assets/images/card-front-giraffe.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                    <div class="card-image" data-cardimage="Giraffe">
-                        <img class="card-front" src="assets/images/card-front-giraffe.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                    <div class="card-image" data-cardimage="Lion">
-                        <img class="card-front" src="assets/images/card-front-lion.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                    <div class="card-image" data-cardimage="Lion">
-                        <img class="card-front" src="assets/images/card-front-lion.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>  
-                    <div class="card-image" data-cardimage="Monkey">
-                        <img class="card-front" src="assets/images/card-front-monkey.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                    <div class="card-image" data-cardimage="Monkey">
-                        <img class="card-front" src="assets/images/card-front-monkey.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                    <div class="card-image" data-cardimage="Tiger">
-                        <img class="card-front" src="assets/images/card-front-tiger.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                    <div class="card-image" data-cardimage="Tiger">
-                        <img class="card-front" src="assets/images/card-front-tiger.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                    <div class="card-image" data-cardimage="Zebra">
-                        <img class="card-front" src="assets/images/card-front-zebra.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                    <div class="card-image" data-cardimage="Zebra">
-                        <img class="card-front" src="assets/images/card-front-zebra.png">
-                        <img class="card-back" src="assets/images/card-back-face.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Congratulations Modal Box - displays on winning-->
-        <div id="winningModalBox" class="modal">
-          <!-- Modal content -->
-        	<article class="content-wrapper">
-        		<button class="close"></button>
-        		<header class="modal-header">
-        			<h2>Congratulations - You Won <i class="far fa-smile-beam"></i></h2>
-        		</header>
-        		<div class="content">
-        			<p>You completed the game in <strong><span id="winning-moves">0 </span> Move(s).</strong></p>
-        		</div>
-        		<footer class="modal-footer">
-        			<button class="play-again" onclick="playAgain()"><i class="fas fa-redo"></i> Play Again</button>
-        			<button class="return-home" onclick="playAgain()"><i class="fas fa-home"></i>Back Home</button>
-        		</footer>
-        	</article>
+            <div class="row mt-5 mb-4 mx-auto justify-content-center">
+                <h4 class="level1-button"><a href="level1.html">Level 1</a></h4>
+            </div>   
+            <div class="row mt-1 mb-4 mx-auto justify-content-center">
+                <h4 class="level2-button"><a href="level2.html">Level 2</a></h4>
+            </div>  
+            <div class="row mt-1 mb-4 mx-auto justify-content-center">
+                <h4 class="level3-button"><a href="level3.html">Level 3</a></h4>
+            </div>              
         </div>
     </section>
-    <script type="text/javascript" src="assets/js/memory-game.js"></script>
 </body>
 </html>
