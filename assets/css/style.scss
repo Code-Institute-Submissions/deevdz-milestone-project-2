@@ -15,8 +15,24 @@ $button-border-radius:0.25rem;
 
 /*--- Styles for Index Page---*/
 #main {
-    background: url(../images/main-bgrd.png) repeat $blue;
+    background: url(../images/homepage-bgrd-image.png) no-repeat #56b947 top center;
+    background-size: cover;
+    height: 100%;
+}
 
+#main h1 {
+    -webkit-text-stroke-width: 1px;
+    color: #7a306c;
+}
+
+#main p {
+    text-align:center;
+    color: white;
+}
+
+.tiles {
+    font-size:14px;
+    vertical-align: middle;
 }
 
 .level1-button, 
@@ -28,6 +44,7 @@ $button-border-radius:0.25rem;
     font-size: 1.8rem;
     font-weight: 500;
     margin-bottom: 10px;
+    min-width: 220px;
 }
 
 .level1-button {
