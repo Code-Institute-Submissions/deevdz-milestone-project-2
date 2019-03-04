@@ -1,17 +1,16 @@
-
 //Create an array to hold the Memory Cards and calculate number of cards for shuffle function
 var memoryCard = document.querySelectorAll('.card-image');
 var shuffleNumber = memoryCard.length;
 var memoryCards = [...memoryCard];
 
-//Variables for card states
+//Variables for card and delay states
 var rotatedCard = false;
 var cardOne, cardTwo;
-var disableGameBoard = false;
+var delay = 800;
 
 //Variable to count number of player moves
 var moves = 0;
-var noOfMoves = document.querySelector(".no-of-moves");
+var noOfMoves = document.querySelector('.no-of-moves');
 
 //Loop through the cards and add an event listener to each card
 for (var i = 0; i < memoryCards.length; i++){
@@ -29,41 +28,40 @@ function shuffleGameboard() {
     };
 };
 
-document.body.onload = shuffleGameboard();
-
 //Add the class rotateCard when a card is clicked
 //Checking for values of clicked cards
 function rotateCard() {
-    if (disableGameBoard) return;
-    this.classList.add('rotateCard');
+    var deactivatedCards = document.getElementsByClassName('deactivate');
+    //Checking for double click on card and more than two cards clicked
+    if (deactivatedCards.length >= 2 ) {
+        return false;
+    }
+    else {
+        this.classList.add('rotateCard')
+    };
     if (rotatedCard == false) {
         rotatedCard = true;
         cardOne = this;
         cardOne.classList.add('deactivate'); 
-        return;
-    }; 
-    cardTwo = this;
-    cardTwo.classList.add('deactivate'); 
-    rotatedCard = false;
-    playingGame();
+    }
+    else {
+        cardTwo = this;
+        cardTwo.classList.add('deactivate'); 
+        rotatedCard = false;
+        playingGame();
+    };
 };
 
 //Check if the cards are matching
 function playingGame() {
-    //Testing Cards and outputing to conole
-    var testCard1 = cardOne.dataset.cardimage;
-    console.log(testCard1);
-    var testCard2 = cardTwo.dataset.cardimage;
-    console.log(testCard2);
+    //Count the number of cards that are rotated
     var rotatedCards = document.getElementsByClassName('rotateCard');
     var cardMoves = rotatedCards.length;
-    console.log(cardMoves);
     if (cardMoves % 2 == 0) {
         countNoOfMoves();
-    //If the cards match add new class to matched cards
+        //If the cards match add new class to matched cards
         if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
             matchingCards();
-            return;
             }
         else {
             unmatchedCards();
@@ -71,31 +69,35 @@ function playingGame() {
     };
 };
 
+//Matching Cards have the class pair added to both cards
+//Count the number of cards with the class pair, if these equal the number of cards then display winning Modal Box with number of moves
 function matchingCards() {
     cardOne.classList.add('pair');
     cardTwo.classList.add('pair');
+    cardOne.classList.remove('deactivate');
+    cardTwo.classList.remove('deactivate');    
     var cardPairs = document.getElementsByClassName('pair');
     var pairAmount = cardPairs.length;
     if (pairAmount == shuffleNumber) {
             setTimeout(function(){
-            modal.style.display = "block";
-            document.getElementById("winning-moves").innerHTML = moves;
+            modal.style.display = 'block';
+            document.getElementById('winning-moves').innerHTML = moves;
         }, 500);
     };
 };
 
 function unmatchedCards(){
-    if (this === cardOne) return;
-        disableGameBoard = true;
-        //Set Timeout for rotating two cards if the cards don't match remove classes
-        setTimeout(function(){
-            cardOne.classList.remove('rotateCard', 'deactivate'); 
-            cardTwo.classList.remove('rotateCard', 'deactivate'); 
-            //Reset the Gameboard for the next turn
-            disableGameBoard = false;
-        }, 1200);
+    if (this === cardOne) {
+        return;
+    }
+    //Set Timeout for rotating two cards if the cards don't match remove classes
+    setTimeout(function(){
+        cardOne.classList.remove('rotateCard', 'deactivate'); 
+        cardTwo.classList.remove('rotateCard', 'deactivate'); 
+    }, delay);
 };
 
+// Moves Counter
 function countNoOfMoves(){
     moves++;
     noOfMoves.innerHTML = moves;
@@ -106,22 +108,25 @@ function countNoOfMoves(){
 var modal = document.getElementById('winningModalBox');
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName('close')[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
+    modal.style.display = 'none';
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";   
+        modal.style.display = 'none';   
     }
 };
 
 //Play Again Button - reset Gameboard and close Modal Box
 function playAgain () {
     shuffleGameboard();
-    modal.style.display = "none";
+    modal.style.display = 'none';
 }
+
+//On loading the page shuffle the cards
+document.body.onload = shuffleGameboard();
