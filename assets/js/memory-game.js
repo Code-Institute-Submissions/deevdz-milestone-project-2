@@ -6,7 +6,7 @@ var memoryCards = [...memoryCard];
 //Variables for card and delay states
 var rotatedCard = false;
 var cardOne, cardTwo;
-var delay = 800;
+var delay = 1200;
 
 //Variable to count number of player moves
 var moves = 0;
@@ -22,7 +22,7 @@ function shuffleGameboard() {
     for (var i = 0; i < memoryCards.length; i++){
         var randomPosition = Math.floor(Math.random() * shuffleNumber);
         memoryCard[i].style.order = randomPosition;
-        memoryCard[i].classList.remove('rotateCard', 'deactivate', 'pair'); 
+        memoryCard[i].classList.remove('rotateCard', 'deactivate', 'pair', 'shake'); 
         moves = 0;
         noOfMoves.innerHTML = moves;
     };
@@ -89,7 +89,7 @@ function matchingCards() {
 function unmatchedCards(){
     if (this === cardOne) {
         return;
-    }
+    };
     //Set Timeout for rotating two cards if the cards don't match remove classes
     setTimeout(function(){
         cardOne.classList.remove('rotateCard', 'deactivate'); 

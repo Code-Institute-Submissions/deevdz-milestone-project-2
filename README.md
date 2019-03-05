@@ -13,20 +13,72 @@ Game Requirements
 * Need to be able to shuffle card positions on page reload/on clicking of game restart button.
 * When player wins a modal box displays on screen congratulating the winner and giving them the option to replay the level, move onto next level or return to home screen.
 
+Considerations and Game Requirements
+-----------------------------------------
+**1. Design/Layout of the Game**
+
+Using HTML & CSS create a game grid.
+
+**2. Turning/Flipping the Cards**
+
+Look at matched cards & what happens.
+
+Look at unmatched cards & what happens.
+
+Things to consider:
+* Double clicking the same card
+* Speed of the cards rotating
+* Locking board when two cards have rotated to start new turn
+* Matching cards stay rotated
+* Unmatched cards rotate back to initial state
+
+**3. Winning Game**
+
+All cards are rotated displaying matching images.
+
+This triggers a modal box to open and display congratulations message and buttons with option to return to the winning gameboard (by clicking (x)), play again button, move to next level where available or return to home screen.
+
+**4. Shuffling Cards**
+
+An ability to shuffle the positions of the cards is an integeral part of the game. Card positions should reshuffle on page load, if the restart button is clicked or the play again button is clicked.
+
+**5. Counting player moves**
+
+Count the number of moves a player makes and display moves on screen. Only when two cards have rotated will it be considered that a move has occurred.
+
 
 UX
 -----------------------------------------
+As this game is targeted at children it is important that the colours and imagery is bright and appealing.
 
+Design was kept consitent with the use of a set colour palette and the location of features on screen.
+
+**Each level:**
+* informs the player of which level they are currently playing
+* a link to the homepage through the home icon
+* the number of moves a player has made
+* a restart the game button
+* a gameboard displaying a different no of cards to match.
+
+[Link to initial gameboard design](wireframes/Initial-design-idea.png)
 
 
 Features
 -----------------------------------------
+
+**Different Levels**
+
+
+**Card Animations on Rotate**
+
+
 
 
 
 Future Features
 -----------------
 * Add timer functionality - a given amount of time for the player to solve the game.
+* Add more animation to matched and unmatched cards
 
 
 Technologies Used
@@ -43,6 +95,7 @@ This website uses
 Testing
 -----------------------------------------
 
+The site has been tested across multiple browsers and devices including Chrome, Firefox and Internet Explorer. As this site is using the bootstrap framework I am confident that it is responsive. I have checked that all links are working and going to the correct location.
 
 
 Deployment
@@ -54,14 +107,23 @@ Credits
 -----------------------------------------
 **Code:**
 
-
+* Use of Spread Operator - [https://davidwalsh.name/spread-operator](https://davidwalsh.name/spread-operator)
+* Using Order for Shuffling Cards - [https://www.w3schools.com/cssref/css3_pr_order.asp](https://www.w3schools.com/cssref/css3_pr_order.asp)
+* Ability to store custom data for card shuffle - [https://www.w3schools.com/tags/att_global_data.asp](https://www.w3schools.com/tags/att_global_data.asp)
+* Modal Box References - [https://www.w3schools.com/howto/howto_css_modals.asp](https://www.w3schools.com/howto/howto_css_modals.asp) and [https://codepen.io/joshuaward/pen/jYZXGo](https://codepen.io/joshuaward/pen/jYZXGo)
 
 **Media:**
 
-
-
+Images for the game were both self designed and sourced from [https://www.vecteezy.com](https://www.vecteezy.com) and [https://www.freepik.com](https://www.freepik.com)
 
 **Acknowledgements:**
+The following tutorials were used for reference and guidance:
+
+[https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript](https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript)
+
+[https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/](https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/)
+
+[https://medium.freecodecamp.org/vanilla-javascript-tutorial-build-a-memory-game-in-30-minutes-e542c4447eae](https://medium.freecodecamp.org/vanilla-javascript-tutorial-build-a-memory-game-in-30-minutes-e542c4447eae)
 
 
 
