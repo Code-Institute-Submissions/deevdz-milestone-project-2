@@ -58,7 +58,8 @@ Design was kept consitent with the use of a set colour palette and the location 
 * a link to the homepage through the home icon
 * the number of moves a player has made
 * a restart the game button
-* a gameboard displaying a different no of cards to match.
+* a gameboard displaying a different no of cards to match
+* a different background image and different card images to keep the player interested.
 
 [Link to initial gameboard design](wireframes/Initial-design-idea.png)
 
@@ -66,10 +67,17 @@ Design was kept consitent with the use of a set colour palette and the location 
 Features
 -----------------------------------------
 
-**Different Levels**
+**Different Levels** - 
+Offer the user the opportunity to challenge themselves by offering different numbers of tiles to match at different levels. 
 
 
-**Card Animations on Rotate**
+**Card Animations on Rotate** - 
+Added animations to the cards when they rotate to add some interactive features to the game.
+
+
+**Congratulations Modal Box on Winning Game** - 
+A popup modal box that congratulates the player on winning the game. It provides the user with details on how many moves it took them to win the game, options to play the level again and a button to move onto the next level where available. 
+
 
 
 
@@ -100,6 +108,8 @@ The site has been tested across multiple browsers and devices including Chrome, 
 
 Deployment
 -----------------------------------------
+Deployment and source control was carried out via GitHub. The repository location is as follows:[https://github.com/deevdz/milestone-project-2/](https://github.com/deevdz/milestone-project-2/)
+
 Game has been deployed using GitHub Pages and can be found at this [location](https://deevdz.github.io/milestone-project-2/index.html).
 
 
