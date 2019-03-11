@@ -71,11 +71,11 @@ The site has been tested across multiple browsers and devices including Chrome, 
 
 **Manual testing**
 
-My manual testing consists of me physically testing all functionality on my game. Using the initial game requirements and considerations as a guide I broke down each step of the game to build in stages and tested each new piece of functionality along the way. A more detailed explanation of the testing I carried out can be [found here](docs/manual-testing.md).
+Manual testing consists of physically testing all functionality on the game. Using the initial game requirements and considerations as a guide, each step of the game was broken down to build in stages and each piece of functionality was tested along the way. A more detailed explanation of the testing carried out can be [found here](docs/manual-testing.md).
 
 **Jasmine Testing**
 
-I tried testing my game using Jasmine but I believe I started testing with Jasmine too late in my development. Jasmine testing can be [found here](test.html).
+Testing can be carried out using Jasmine but was started too late in the development of this project. In future it would be better to start this earlier in the process. Jasmine testing can be [found here](test.html).
 
 
 Deployment

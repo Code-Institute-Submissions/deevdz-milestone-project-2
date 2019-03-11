@@ -6,7 +6,7 @@ var memoryCards = [...memoryCard];
 //Variables for card and delay states
 var rotatedCard = false;
 var cardOne, cardTwo;
-var delay = 1200;
+var delay = 1000;
 
 //Variable to count number of player moves
 var moves = 0;
@@ -62,7 +62,7 @@ function playingGame() {
         //If the cards match add new class to matched cards
         if (cardOne.dataset.cardimage === cardTwo.dataset.cardimage) {
             matchingCards();
-            }
+        }
         else {
             unmatchedCards();
         };
@@ -85,7 +85,7 @@ function winGame () {
     var pairAmount = cardPairs.length;
     if (pairAmount == shuffleNumber) {
             setTimeout(function(){
-            modal.style.display = 'block';
+            modalBox.style.display = 'block';
             document.getElementById('winning-moves').innerHTML = moves;
         }, 500);
     };    
@@ -110,27 +110,27 @@ function countNoOfMoves(){
 
 //Code for the Modal Box
 // Get the modal
-var modal = document.getElementById('winningModalBox');
+var modalBox = document.getElementById('winningModalBox');
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName('close')[0];
+// Get the <button> element that closes the modal
+var btnClose = document.getElementsByClassName('close')[0];
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = 'none';
+// When the user clicks on <button> (x), close the modal
+btnClose.onclick = function() {
+    modalBox.style.display = 'none';
 };
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = 'none';   
+    if (event.target == modalBox) {
+        modalBox.style.display = 'none';   
     }
 };
 
 //Play Again Button - reset Gameboard and close Modal Box
 function playAgain () {
     shuffleGameboard();
-    modal.style.display = 'none';
+    modalBox.style.display = 'none';
 }
 
 //On loading the page shuffle the cards

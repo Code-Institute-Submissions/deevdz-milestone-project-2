@@ -203,7 +203,7 @@ h1 {
   transition: all .5s ease-in-out;
   transform: rotateY(180deg); }
 
-/*---Styling for the Modal Box---*/
+/*---Styling for the Modal Box and Elements---*/
 .modal {
   display: none;
   position: fixed;
@@ -226,10 +226,6 @@ h1 {
 
 .content-wrapper {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   width: 50%;
   margin: 0;
   padding: 2.5rem;
@@ -241,12 +237,10 @@ h1 {
   left: 25%; }
 
 .close {
-  position: absolute;
+  position: relative;
   top: 0.5rem;
   right: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  float: right;
   width: 2.5rem;
   height: 2.5rem;
   border: none;
@@ -269,6 +263,9 @@ h1 {
 
 .close:hover {
   transform: rotate(360deg); }
+
+.close:hover, .close:focus {
+  cursor: pointer; }
 
 .close:hover:before, .close:hover:after {
   background-color: #7cc576; }
