@@ -90,7 +90,7 @@ function winGame () {
         }, 500);
     };    
 }
-
+//If the cards don't match remove the rotateCard and deactivate classes
 function unmatchedCards(){
     if (this === cardOne) {
         return;
@@ -102,7 +102,7 @@ function unmatchedCards(){
     }, delay);
 };
 
-// Moves Counter
+// Count number of moves and update the no of moves on screen.
 function countNoOfMoves(){
     moves++;
     noOfMoves.innerHTML = moves;
