@@ -76,6 +76,11 @@ function matchingCards() {
     cardTwo.classList.add('pair');
     cardOne.classList.remove('deactivate');
     cardTwo.classList.remove('deactivate');    
+    winGame();
+};
+
+//Check if player has won the game. Count the number of cards with class name pair if this is equal to the number of playing cards player has won.
+function winGame () {
     var cardPairs = document.getElementsByClassName('pair');
     var pairAmount = cardPairs.length;
     if (pairAmount == shuffleNumber) {
@@ -83,8 +88,8 @@ function matchingCards() {
             modal.style.display = 'block';
             document.getElementById('winning-moves').innerHTML = moves;
         }, 500);
-    };
-};
+    };    
+}
 
 function unmatchedCards(){
     if (this === cardOne) {
