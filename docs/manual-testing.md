@@ -1,6 +1,6 @@
 # Manual Testing #
 
-First, I set up a single page with the game grid following my wireframing. Using HTML and CSS a responsive game grid with 12 cards was created. With the grid in place my first task was to add event listeners to the cards, once the cards were clicked the cards would now rotate by toggling the class. Animation was achieved using CSS.
+First, I set up a single page with a game grid following my wireframes. Using HTML and CSS a responsive game grid with 12 cards was created. With the grid in place my first task was to add event listeners to the cards, once the cards were clicked the cards would now rotate by toggling the class. Animation was achieved using CSS.
 
 The next step was to create a function that would shuffle the position of the cards on the gameboard. I started by setting up the shuffle based on the number of cards that I had on the grid, which was 12. Using the CSS order property, each card was given a random position on the game board. Adding the shuffle function to a document.onload allowed me to test that the cards were shuffling by reloading the page. As I wanted to expand the range of the game to have different size game grids I now looked at a way to check how many cards were in the grid and shuffle the cards based on that number. To confirm I was generating the correct number I changed the number of cards on the grid and wrote the "shuffleNumber" to the log.
 

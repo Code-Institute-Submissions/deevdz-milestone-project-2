@@ -3,7 +3,7 @@ Memory Game - Interactive Frontend Project
 
 Create a matching memory card game for children.
 
-A dashboard with an even number of playing cards. Cards are flipped two at a time to make a matching pair. If the cards don't match they return to their initial state. Only when all cards are matched will the player win the game.
+A dashboard with an even number of playing cards. Cards are flipped two at a time to make a matching pair. If the cards don't match they return to their initial state. Only when all cards match will the player win the game.
 
 Game Requirements
 -----------------------------------------
@@ -17,9 +17,9 @@ A more detailed breakdown of game requirements and considerations can be [found 
 
 UX
 -----------------------------------------
-As this game is targeted at children it is important that the colours and imagery is bright and appealing.
+As this game is targeted at children it is important that the colours and imagery are bright and appealing.
 
-Design was kept consitent with the use of a set colour palette and the location of features on screen.
+Design was kept consistent with the use of a set colour palette and the location of features on screen.
 
 **Each level:**
 * informs the player of which level they are currently playing
