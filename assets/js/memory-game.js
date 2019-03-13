@@ -15,7 +15,7 @@ var noOfMoves = document.querySelector('.no-of-moves');
 //Loop through the cards and add an event listener to each card
 for (var i = 0; i < memoryCards.length; i++){
     memoryCards[i].addEventListener('click', rotateCard);
-};
+}
 
 //Shuffle the cards on the Gameboard - remove the classes so cards are reset, reset the moves to 0
 function shuffleGameboard() {
@@ -25,8 +25,8 @@ function shuffleGameboard() {
         memoryCard[i].classList.remove('rotateCard', 'deactivate', 'pair', 'shake'); 
         moves = 0;
         noOfMoves.innerHTML = moves;
-    };
-};
+    }
+}
 
 //Add the class rotateCard when a card is clicked
 //Checking for values of clicked cards
@@ -37,8 +37,8 @@ function rotateCard() {
         return false;
     }
     else {
-        this.classList.add('rotateCard')
-    };
+        this.classList.add('rotateCard');
+    }
     if (rotatedCard == false) {
         rotatedCard = true;
         cardOne = this;
@@ -49,8 +49,8 @@ function rotateCard() {
         cardTwo.classList.add('deactivate'); 
         rotatedCard = false;
         playingGame();
-    };
-};
+    }
+}
 
 //Check if the cards are matching
 function playingGame() {
@@ -65,9 +65,9 @@ function playingGame() {
         }
         else {
             unmatchedCards();
-        };
-    };
-};
+        }
+    }
+}
 
 //Matching Cards have the class pair added to both cards
 //Count the number of cards with the class pair, if these equal the number of cards then display winning Modal Box with number of moves
@@ -77,7 +77,7 @@ function matchingCards() {
     cardOne.classList.remove('deactivate');
     cardTwo.classList.remove('deactivate');    
     winGame();
-};
+}
 
 //Check if player has won the game. Count the number of cards with class name pair if this is equal to the number of playing cards player has won.
 function winGame () {
@@ -88,19 +88,19 @@ function winGame () {
             modalBox.style.display = 'block';
             document.getElementById('winning-moves').innerHTML = moves;
         }, 500);
-    };    
+    }   
 }
 //If the cards don't match remove the rotateCard and deactivate classes
 function unmatchedCards(){
     if (this === cardOne) {
         return;
-    };
+    }
     //Set Timeout for rotating two cards if the cards don't match remove classes
     setTimeout(function(){
         cardOne.classList.remove('rotateCard', 'deactivate'); 
         cardTwo.classList.remove('rotateCard', 'deactivate'); 
     }, delay);
-};
+}
 
 // Count number of moves and update the no of moves on screen.
 function countNoOfMoves(){
